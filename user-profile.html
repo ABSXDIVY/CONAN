@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - 名侦探柯南社区</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Source+Sans+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header-top">
+                <div class="top-nav">
+                    <ul class="simple-toggle" id="menu">
+                        <li>
+                            <a href="index.html">
+                                <span class="fa fa-home">社区主页</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="characters.html">
+                                <span class="fa fa-users">人物简介</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="relationships.html">
+                                <span class="fa fa-sitemap">人物关系</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="episodes.html">
+                                <span class="fa fa-play-circle">剧集观看</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reviews.html">
+                                <span class="fa fa-commentary">热门解说</span>
+                            </a>
+                        </li>
+                        <li class="logo">
+                            <a href="user-profile.html">
+                                <h1><i aria-hidden="true"></i>个人中心</h1>
+                            </a>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#menu-toggle').click(function (e) {
+                                $('#menu').toggleClass('open');
+                                e.preventDefault();
+                            });
+                            $('.simple-toggle li a').click(function (e) {
+                                $('.simple-toggle li').removeClass('active');
+                                $(this).parent('li').addClass('active');
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="images/banner.jpg" alt="名侦探柯南社区" style="width:100%; border-radius:5px;">
+                <div class="banner-text">
+                    <h2>管理您的个人信息</h2>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <h1 style="color:#758084; font-size:28px; padding:15px 0; border-bottom:1px solid #f4f5f5;">
+                <i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息设置
+            </h1>
+
+            <div class="profile-container" style="display:flex; flex-wrap:wrap; gap:30px; margin:30px 0;">
+                <!-- 左侧个人资料卡片 -->
+                <div class="profile-card"
+                    style="flex:1; min-width:300px; background:white; border-radius:8px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <div class="profile-avatar" style="text-align:center; margin-bottom:20px;">
+                        <div class="avatar-container"
+                            style="position:relative; width:150px; height:150px; margin:0 auto; border-radius:50%; overflow:hidden; border:5px solid #f4f5f5;">
+                            <img src="images/user-avatar.jpg" alt="用户头像"
+                                style="width:100%; height:100%; object-fit:cover;">
+                            <div class="avatar-upload"
+                                style="position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.5); color:white; padding:5px; text-align:center; cursor:pointer; font-size:14px;">
+                                <i class="fa fa-camera" aria-hidden="true"></i> 更换头像
+                            </div>
+                        </div>
+                        <input type="file" id="avatarInput" style="display:none;">
+                    </div>
+
+                    <div class="profile-info" style="margin-bottom:20px;">
+                        <h3 style="text-align:center; margin:0 0 15px; color:#333; font-size:22px;">conan</h3>
+                        <div class="profile-stats"
+                            style="display:flex; justify-content:space-around; text-align:center; margin-bottom:20px;">
+                            <div>
+                                <div style="font-size:18px; font-weight:bold; color:#e17c65;">42</div>
+                                <div style="font-size:14px; color:#758084;">发布解说</div>
+                            </div>
+                            <div>
+                                <div style="font-size:18px; font-weight:bold; color:#e17c65;">1.2万</div>
+                                <div style="font-size:14px; color:#758084;">获赞数</div>
+                            </div>
+                            <div>
+                                <div style="font-size:18px; font-weight:bold; color:#e17c65;">356</div>
+                                <div style="font-size:14px; color:#758084;">关注者</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-bio"
+                            style="background:#f9f9f9; padding:15px; border-radius:5px; margin-bottom:20px;">
+                            <h4 style="margin:0 0 10px; color:#758084; font-weight:bold; font-size:16px;"><i
+                                    class="fa fa-user-circle" aria-hidden="true"></i> 个人简介</h4>
+                            <p style="margin:0; color:#666; font-size:14px; line-height:1.6em;">
+                                资深up主，定期更新柯南剧集解说，欢迎交流讨论！
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions" style="display:flex; gap:10px;">
+                        <button class="edit-profile-btn"
+                            style="flex:1; background:#e17c65; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer; font-weight:bold; transition:background 0.3s;">
+                            <i class="fa fa-edit" aria-hidden="true"></i> 编辑资料
+                        </button>
+                        <button class="logout-btn" onclick="logout()"
+                            style="width:50px; background:#f4f5f5; color:#758084; border:none; border-radius:5px; cursor:pointer; transition:background 0.3s;">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 右侧信息编辑表单 -->
+                <div class="profile-form"
+                    style="flex:2; min-width:300px; background:white; border-radius:8px; padding:25px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+                    <h2
+                        style="color:#758084; font-size:22px; margin:0 0 20px; padding-bottom:10px; border-bottom:1px solid #f4f5f5;">
+                        <i class="fa fa-cog" aria-hidden="true"></i> 编辑个人信息
+                    </h2>
+
+                    <form id="profileForm" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                        <div class="form-group">
+                            <label for="username"
+                                style="display:block; margin-bottom:8px; color:#758084; font-weight:500;">用户名 <span
+                                    style="color:red;">*</span></label>
+                            <input type="text" id="username" value="conan"
+                                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; font-family:inherit; font-size:16px;">
+                            <p style="margin:5px 0 0; color:#999; font-size:12px;">用户名只能包含字母、数字和下划线</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nickname"
+                                style="display:block; margin-bottom:8px; color:#758084; font-weight:500;">昵称</label>
+                            <input type="text" id="nickname" value="神秘眼镜男"
+                                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; font-family:inherit; font-size:16px;">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"
+                                style="display:block; margin-bottom:8px; color:#758084; font-weight:500;">电子邮箱 <span
+                                    style="color:red;">*</span></label>
+                            <input type="email" id="email" value="conan_fan@example.com"
+                                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; font-family:inherit; font-size:16px;">
+                            <p style="margin:5px 0 0; color:#999; font-size:12px;">用于账号安全验证和通知</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender"
+                                style="display:block; margin-bottom:8px; color:#758084; font-weight:500;">性别</label>
+                            <select id="gender"
+                                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; font-family:inherit; font-size:16px; appearance:none; background-image:url('data:image/svg+xml;charset=US-ASCII,<svg width=\"
+                                20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\">
+                                <path d=\"M7 10l5 5 5-5z\" fill=\"%23333\" /></svg>'); background-repeat:no-repeat;
+                                background-position:right 10px center;">
+                                <option value="male" selected>男</option>
+                                <option value="female">女</option>
+                                <option value="secret">保密</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="grid-column:1 / -1;">
+                            <label for="bio"
+                                style="display:block; margin-bottom:8px; color:#758084; font-weight:500;">个人简介</label>
+                            <textarea id="bio" rows="4"
+                                style="width:100%; padding:10px; border:1px solid #ddd; border-radius:5px; font-family:inherit; font-size:16px; resize:vertical;">资深up主，定期更新柯南剧集解说，欢迎交流讨论！</textarea>
+                            <p style="margin:5px 0 0; color:#999; font-size:12px;">最多可输入200个字符</p>
+                        </div>
+
+                        <div class="form-group" style="grid-column:1 / -1;">
+                            <h3 style="color:#758084; font-size:18px; margin:0 0 15px;">账号安全</h3>
+                            <div
+                                style="display:flex; align-items:center; justify-content:space-between; padding:10px; background:#f9f9f9; border-radius:5px;">
+                                <div>
+                                    <div style="font-weight:500; color:#333;">密码</div>
+                                    <div style="color:#999; font-size:12px;">上次修改于3个月前</div>
+                                </div>
+                                <button type="button" class="change-pwd-btn"
+                                    style="background:#3498db; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold; transition:background 0.3s;">
+                                    修改密码
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-actions"
+                            style="grid-column:1 / -1; display:flex; justify-content:flex-end; gap:15px; margin-top:10px;">
+                            <button type="button" class="cancel-btn"
+                                style="padding:10px 20px; background:#f4f5f5; color:#758084; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition:background 0.3s;">
+                                取消
+                            </button>
+                            <button type="submit" class="save-btn"
+                                style="padding:10px 25px; background:#e17c65; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition:background 0.3s;">
+                                保存更改
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer"
+            style="background:#2c3e50; color:white; text-align:center; padding:20px; margin-top:30px; border-radius:5px 5px 0 0;">
+            <div class="copy-right">
+                <p>&copy; 2025 名侦探柯南社区 | 本网站为粉丝制作，非官方
+                    <a target="_blank" href="https://www.conan-portal.com/" title="官方网站">
+                        <i class="fa fa-external-link" aria-hidden="true"></i> 官方网站
+                    </a>
+                </p>
+                <p style="margin-top:8px; font-size:0.9em; opacity:0.9;"><i class="fa fa-database"
+                        aria-hidden="true"></i> 数据来源: Bilibili • 最后更新: 2025年7月</p>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        // 头像上传功能
+        document.querySelector('.avatar-upload').addEventListener('click', function () {
+            document.getElementById('avatarInput').click();
+        });
+
+        document.getElementById('avatarInput').addEventListener('change', function (e) {
+            // 这里可以添加头像预览和上传逻辑
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.querySelector('.avatar-container img').src = e.target.result;
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        // 表单提交处理
+        document.getElementById('profileForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // 这里添加表单提交逻辑
+            alert('个人信息已更新成功！');
+        });
+
+        // 取消按钮
+        document.querySelector('.cancel-btn').addEventListener('click', function () {
+            // 这里添加取消逻辑，如重置表单
+            if (confirm('确定要放弃更改吗？')) {
+                // 重置表单代码
+            }
+        });
+
+        // 修改密码按钮
+        document.querySelector('.change-pwd-btn').addEventListener('click', function () {
+            // 这里添加修改密码逻辑
+            alert('跳转到密码修改页面');
+        });
+
+        // 退出登录按钮
+        document.querySelector('.logout-btn').addEventListener('click', function () {
+            if (confirm('确定要退出登录吗？')) {
+                // 这里添加退出登录逻辑
+                alert('已退出登录');
+            }
+        });
+
+        function logout() {
+            // 清除登录状态（如localStorage/sessionStorage）
+            localStorage.removeItem('token');
+            // 然后跳转
+            window.location.href = 'login.html';
+        }
+
+
+    </script>
+</body>
+
+</html>

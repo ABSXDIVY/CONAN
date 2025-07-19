@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物简介 - 名侦探柯南社区</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Source+Sans+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header-top">
+                <div class="top-nav">
+                    <ul class="simple-toggle" id="menu">
+                        <li>
+                            <a href="index.html">
+                                <span class="fa fa-home">社区主页</span>
+                            </a>
+                        </li>
+                        <li class="logo">
+                            <a href="characters.html">
+                                <h1><i aria-hidden="true"></i>人物简介</h1>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="relationships.html">
+                                <span class="fa fa-sitemap">人物关系</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reviews.html">
+                                <span class="fa fa-commentary">热门解说</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="episodes.html">
+                                <span class="fa fa-play-circle">剧集观看</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="user-profile.html">
+                                <span class="fa fa-user">个人中心</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" id="menu-toggle" class="anchor-link">
+                        <i class="fa fa-bars" aria-hidden="true"></i> 菜单
+                    </a>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#menu-toggle').click(function (e) {
+                                $('#menu').toggleClass('open');
+                                e.preventDefault();
+                            });
+                            $('.simple-toggle li a').click(function (e) {
+                                $('.simple-toggle li').removeClass('active');
+                                $(this).parent('li').addClass('active');
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="images/banner.jpg" alt="名侦探柯南社区" style="width:100%; border-radius:5px;">
+                <div class="banner-text">
+                    <h2>探索柯南世界的人物故事</h2>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区：左侧索引 + 右侧内容 -->
+        <div class="content-wrapper" style="display:flex; gap:20px; padding:2%;">
+            <!-- 左侧悬挂索引 -->
+            <aside class="character-index-sidebar"
+                style="width:260px; flex-shrink:0; position:sticky; top:20px; align-self:flex-start;">
+                <div class="top_grid" style="padding:15px; margin-bottom:0;">
+                    <!-- 搜索框 -->
+                    <div class="search-box" style="margin-bottom:15px;">
+                        <input type="text" id="characterSearch" placeholder="搜索角色..."
+                            style="width:100%; padding:8px; border:1px solid #ddd; border-radius:4px; font-family:inherit;">
+                    </div>
+
+                    <h3
+                        style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold; border-bottom:1px solid #f4f5f5;">
+                        <i class="fa fa-list-ul" aria-hidden="true"></i> 阵营索引
+                    </h3>
+
+                    <div class="index-section" style="margin:15px 0;">
+                        <p style="font-weight:bold; color:#e17c65; margin-bottom:8px;"><i class="fa fa-star"
+                                aria-hidden="true"></i> 主要角色</p>
+                        <ul style="padding-left:15px; list-style-type:disc; margin-bottom:15px;">
+                            <li><a href="#main-characters" class="faction-link" data-faction="main"
+                                    style="color:#3498db; transition:color 0.3s;">核心人物</a></li>
+                            <li><a href="#detective-boys" class="faction-link" data-faction="detective-boys"
+                                    style="color:#3498db; transition:color 0.3s;">少年侦探团</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="index-section" style="margin:15px 0;">
+                        <p style="font-weight:bold; color:#e17c65; margin-bottom:8px;"><i class="fa fa-users"
+                                aria-hidden="true"></i> 家族与友人</p>
+                        <ul style="padding-left:15px; list-style-type:disc; margin-bottom:15px;">
+                            <li><a href="#kudou-family" class="faction-link" data-faction="kudou"
+                                    style="color:#3498db; transition:color 0.3s;">工藤家族</a></li>
+                            <li><a href="#mouri-family" class="faction-link" data-faction="mouri"
+                                    style="color:#3498db; transition:color 0.3s;">毛利家族</a></li>
+                            <li><a href="#other-friends" class="faction-link" data-faction="friends"
+                                    style="color:#3498db; transition:color 0.3s;">其他友人</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="index-section" style="margin:15px 0;">
+                        <p style="font-weight:bold; color:#e17c65; margin-bottom:8px;"><i class="fa fa-search"
+                                aria-hidden="true"></i> 侦探与对手</p>
+                        <ul style="padding-left:15px; list-style-type:disc; margin-bottom:15px;">
+                            <li><a href="#detectives" class="faction-link" data-faction="detectives"
+                                    style="color:#3498db; transition:color 0.3s;">侦探角色</a></li>
+                            <li><a href="#phantom-thief" class="faction-link" data-faction="phantom-thief"
+                                    style="color:#3498db; transition:color 0.3s;">怪盗家族</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="index-section" style="margin:15px 0;">
+                        <p style="font-weight:bold; color:#e17c65; margin-bottom:8px;"><i class="fa fa-briefcase"
+                                aria-hidden="true"></i> 组织与机构</p>
+                        <ul style="padding-left:15px; list-style-type:disc; margin-bottom:15px;">
+                            <li><a href="#black-organization" class="faction-link" data-faction="black-organization"
+                                    style="color:#3498db; transition:color 0.3s;">黑衣组织</a></li>
+                            <li><a href="#fbi" class="faction-link" data-faction="fbi"
+                                    style="color:#3498db; transition:color 0.3s;">FBI</a></li>
+                            <li><a href="#cia" class="faction-link" data-faction="cia"
+                                    style="color:#3498db; transition:color 0.3s;">CIA</a></li>
+                            <li><a href="#mi6" class="faction-link" data-faction="mi6"
+                                    style="color:#3498db; transition:color 0.3s;">MI6</a></li>
+                            <li><a href="#police" class="faction-link" data-faction="police"
+                                    style="color:#3498db; transition:color 0.3s;">警察机构</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="index-section" style="margin:15px 0;">
+                        <p style="font-weight:bold; color:#e17c65; margin-bottom:8px;"><i class="fa fa-bank"
+                                aria-hidden="true"></i> 其他组织</p>
+                        <ul style="padding-left:15px; list-style-type:disc; margin-bottom:15px;">
+                            <li><a href="#schools" class="faction-link" data-faction="schools"
+                                    style="color:#3498db; transition:color 0.3s;">学校相关</a></li>
+                            <li><a href="#corporations" class="faction-link" data-faction="corporations"
+                                    style="color:#3498db; transition:color 0.3s;">财团与企业</a></li>
+                            <li><a href="#others" class="faction-link" data-faction="others"
+                                    style="color:#3498db; transition:color 0.3s;">其他角色</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 右侧角色内容区 -->
+            <main class="content-main"
+                style="flex-grow:1; background-color:#fff; border-radius:5px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+                <h1 style="color:#758084; font-size:28px; padding:15px 0; border-bottom:1px solid #f4f5f5;">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i> 人物简介
+                </h1>
+
+                <!-- 主要角色 -->
+                <section id="main-characters" class="character-section group">
+                    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold;">
+                        <i class="fa fa-star" aria-hidden="true"></i> 主要角色
+                    </h2>
+                   
+                    <!-- 江户川柯南 -->
+                    <article id="conan" class="character-card top_grid" style="margin-bottom:20px;" data-faction="main"
+                        data-name="江户川柯南">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/conan.jpg" alt="江户川柯南"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">
+                                江户川柯南（江戸川コナン）</h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 原名:</strong> 工藤新一</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong>
+                                初登场时6岁，《计时引爆摩天楼》后7岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 高山南</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                名侦探柯南主角，侦探，少年侦探团实际领导者。原是知名高中生侦探工藤新一，被琴酒灌下APTX-4869变成小学生，为避免身份曝光化名江户川柯南寄住在毛利家，现就读于帝丹小学1年B班，调查黑衣组织并寻找恢复自己身体的方法。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 工藤新一 -->
+                    <article id="shinichi" class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main" data-name="工藤新一">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/shinichi.jpg" alt="工藤新一"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">工藤新一（工藤新一）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong>
+                                初登场时16岁，《计时引爆摩天楼》后17岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 山口胜平、高山南（幼年）</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                名侦探柯南主角，帝丹高中2年B班学生，知名高中生侦探。工藤优作与工藤有希子的独子，黑羽快斗的堂兄弟，毛利兰的青梅竹马兼男友。被称为“日本警察的救世主”“平成年代的福尔摩斯”，并与平次共称“关东的工藤”“关西的服部”。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 毛利兰 -->
+                    <article id="ran" class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main mouri" data-name="毛利兰">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/ran.jpg" alt="毛利兰"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">毛利兰（毛利蘭）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 16岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 山崎和佳奈</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                名侦探柯南女主角，帝丹高中2年B班学生，空手道部主将兼关东空手道大赛冠军。毛利小五郎与妃英理的独女，工藤新一的青梅竹马兼女友。</p>
+                        </div>
+                    </article>
+
+                    <!-- 毛利小五郎 -->
+                    <article id="kogoro" class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main mouri" data-name="毛利小五郎">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/kogoro.jpg" alt="毛利小五郎"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">
+                                毛利小五郎（毛利小五郎）</h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 38岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 神谷明→小山力也</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                原警视厅刑事部搜查一课强行犯搜查三系刑警（警衔巡查部长），经营毛利侦探事务所的知名侦探。妃英理的丈夫，毛利兰的父亲，因经常被柯南麻醉破案，被称为“沉睡的小五郎”。</p>
+                        </div>
+                    </article>
+
+                    <!-- 阿笠博士 -->
+                    <article id="agasa" class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main friends" data-name="阿笠博士">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/agasa.jpg" alt="阿笠博士"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">阿笠博士（阿笠博士）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong>
+                                初登场时52岁，《众目睽睽之下的码头惨剧》后53岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 绪方贤一、田中一成（少年）</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                发明家，工藤新一的邻居，工藤优作与寺井黄之助的老相识，少年侦探团的协助者。芙莎绘·坎贝尔·木之下的初恋，自称“天才发明家”。</p>
+                        </div>
+                    </article>
+
+                    <!-- 灰原哀 -->
+                    <article id="haibara" class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main black-organization" data-name="灰原哀">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/haibara.jpg" alt="灰原哀"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">灰原哀（灰原哀）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 原名:</strong> 宫野志保（代号：雪莉）</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约7岁（实际18岁）</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 林原惠美</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                原是黑衣组织科学家，因宫野明美之死向组织抗议被囚禁，服下APTX-4869变成小学生后被阿笠博士收养，现化名灰原哀并就读于帝丹小学1年B班。</p>
+                        </div>
+                    </article>
+
+                    <!-- 铃木园子 -->
+                    <article class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main friends corporations" data-name="铃木园子">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/sonoko.jpg" alt="铃木园子"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">铃木园子（鈴木園子）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 17岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 松井菜樱子</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                帝丹高中2年B班学生，铃木财团二千金，网球部成员。铃木史郎与铃木朋子的次女，铃木绫子的妹妹，京极真的女友。</p>
+                        </div>
+                    </article>
+
+                    <!-- 服部平次 -->
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main detectives"
+                        data-name="服部平次">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/heiji.jpg" alt="服部平次"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">服部平次（服部平次）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 17岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 堀川亮、阪口周平、比嘉久美子（幼年）
+                            </p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                改方学园高中2年级学生，知名高中生侦探，剑道部部长。服部平藏与服部静华的独子，远山和叶的青梅竹马兼男友，并与新一共称“关西的服部”“关东的工藤”。</p>
+                        </div>
+                    </article>
+
+                    <!-- 远山和叶 -->
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main detectives"
+                        data-name="远山和叶">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/kazuha.jpg" alt="远山和叶"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">远山和叶（遠山和葉）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 17岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 宫村优子、佐久间玲（幼年）</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                改方学园高中2年级学生，合气道二段兼歌牌部成员。远山银司郎的独女，服部平次的青梅竹马兼女友。</p>
+                        </div>
+                    </article>
+
+                    <!-- 世良真纯 -->
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main mi6"
+                        data-name="世良真纯">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/masumi.jpg" alt="世良真纯"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">世良真纯（世良真純）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约16-17岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 日高法子</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                帝丹高中2年B班学生，侦探。赤井务武与赤井玛丽的长女，赤井秀一和羽田秀吉的妹妹。</p>
+                        </div>
+                    </article>
+
+                    <!-- 赤井秀一 -->
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main fbi mi6"
+                        data-name="赤井秀一">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/shuichi.jpg" alt="赤井秀一"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">赤井秀一（赤井秀一）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 32岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 化名/代号:</strong> 诸星大，黑麦</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 池田秀一、梶裕贵（少年）</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                FBI搜查官兼狙击手，曾潜伏在黑衣组织的卧底。赤井务武与赤井玛丽的长子，羽田秀吉与世良真纯的大哥，宫野明美与宫野志保的表亲。詹姆斯·布莱克的下属，茱蒂·斯泰琳的前男友兼同事，安德雷·卡迈尔的同事，琴酒的宿敌。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 安室透 -->
+                    <article class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main police black-organization" data-name="安室透">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/toru.jpg" alt="安室透"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">安室透（安室透）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 29岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 本名/代号:</strong> 降谷零，波本</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 古谷彻→草尾毅、伊濑茉莉也（幼年）
+                            </p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                警察厅警备局警备企划课“零”的公安警察（警衔警部），波洛咖啡厅服务员，私家侦探，潜伏在黑衣组织的卧底。与松田、萩原、景光、伊达为同期毕业生兼好友，朗姆与黑田兵卫的下属，风见裕也的上级，榎本梓的同事，毛利小五郎的大徒弟，被称为“秘密主义者”。
+                            </p>
+                        </div>
+                    </article>
+
+                    <!-- 怪盗基德 -->
+                    <article class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main phantom-thief" data-name="怪盗基德">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/kid.jpg" alt="怪盗基德"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">
+                                怪盗基德（怪盗キッド）</h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 真实身份:</strong> 第一代：黑羽盗一；第二代：黑羽快斗
+                            </p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong>
+                                池田秀一（第一代）、山口胜平（第二代）</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                怪盗魔术师，江户川柯南的对手兼伙伴，白马探的对手，中森银三、茶木神太郎与铃木次郎吉的抓捕对象。国际犯罪代号1412，被称为“日本的亚森·罗宾”“平成的鲁邦”“世纪末的魔术师”“月光下的魔术师”与“令和的魔术师”。来自《魔术快斗》。
+                            </p>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- 少年侦探团 -->
+                <section id="detective-boys" class="character-section group">
+                    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold; margin-top:30px;">
+                        <i class="fa fa-child" aria-hidden="true"></i> 少年侦探团
+                    </h2>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="detective-boys"
+                        data-name="吉田步美">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/ayumi.jpg" alt="吉田步美"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">吉田步美（吉田歩美）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 7岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 岩居由希子</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                帝丹小学1年B班学生，少年侦探团成员，性格天真活泼，对柯南有好感，经常参与各种案件调查。</p>
+                        </div>
+                    </article>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="detective-boys"
+                        data-name="圆谷光彦">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/mitsuhiko.jpg" alt="圆谷光彦"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">圆谷光彦（円谷光彦）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 7岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 大谷育江、折笠爱</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                帝丹小学1年B班学生，少年侦探团成员，圆谷朝美的弟弟，知识面广泛，善于思考，经常提出有价值的线索。</p>
+                        </div>
+                    </article>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="detective-boys"
+                        data-name="小岛元太">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/genta.jpg" alt="小岛元太"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">小岛元太（小嶋元太）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 7岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 高木涉</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                帝丹小学1年B班学生，自称少年侦探团团长，小岛元次的独子，性格冲动，食量很大，经常提议去吃鳗鱼饭。</p>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- 工藤家族 -->
+                <section id="kudou-family" class="character-section group">
+                    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold; margin-top:30px;">
+                        <i class="fa fa-home" aria-hidden="true"></i> 工藤家族
+                    </h2>
+                    <article class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main kudou-family" data-name="工藤优作">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/yusaku.jpg" alt="工藤优作"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">工藤优作（工藤優作）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 田中秀幸</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                世界首屈一指的推理小说家，知名侦探，工藤有希子的丈夫，工藤新一的父亲，黑羽盗一的双胞胎弟弟兼对手，阿笠博士和目暮十三的老相识。</p>
+                        </div>
+                    </article>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main kudou-family" data-name="工藤有希子">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/yukiko.jpg" alt="工藤有希子"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">
+                                工藤有希子（工藤有希子）</h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 37岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 旧姓:</strong> 藤峰</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 岛本须美</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                前演员，工藤优作的妻子，工藤新一的母亲，黑羽盗一的徒弟，贝尔摩德的好友，山村操的偶像，自称“暗夜男爵夫人”，高中时期被称为“帝丹公主”，并与妃英理争夺“帝丹小姐”的宝座。
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main kudou-family fbi" data-name="冲矢昴">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/okiya.jpg" alt="冲矢昴"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">冲矢昴（沖矢昴）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 27岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 东都大学工科研究生，工藤家房客</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 置鲇龙太郎</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                少年侦探团的伙伴，阿笠博士的朋友。真实身份是FBI搜查官赤井秀一。</p>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- 妃法律事务所 -->
+                <section id="law-firm" class="character-section group">
+                    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold;">
+                        <i class="fa fa-balance-scale" aria-hidden="true"></i> 妃法律事务所
+                    </h2>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main law-firm"
+                        data-name="妃英理">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/eri.jpg" alt="妃英理"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">妃英理（妃英理）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong>
+                                初登场时37岁，在《最糟糕的生日》中过生日后38岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-id-card" aria-hidden="true"></i> 婚后姓:</strong> 毛利</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 高岛雅罗</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                知名律师，“妃法律事务所”创办人，毛利小五郎的妻子，毛利兰的母亲，在法律界和高中时期分别被称为“法庭女王”与“帝丹女王”，并与工藤有希子争夺“帝丹小姐”的宝座。</p>
+                        </div>
+                    </article>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main law-firm"
+                        data-name="栗山绿">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/midori.jpg" alt="栗山绿"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">栗山绿（栗山緑）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 百百麻子</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                妃英理的秘书。</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="cafe" class="character-section group">
+                    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold;">
+                        <i class="fa fa-coffee" aria-hidden="true"></i> 波洛咖啡厅
+                    </h2>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main cafe"
+                        data-name="榎本梓">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/azusa.jpg" alt="榎本梓"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">榎本梓（榎本梓）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 23岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 榎本充希子</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                波洛咖啡厅女服务员，安室透的同事，怪盗基德的忠实粉丝，自称“月下的侍者”。</p>
+                        </div>
+                    </article>
+                </section>
+
+                <section id="sushi-shop" class="character-section group">
+                    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold;">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i> 伊吕波寿司店
+                    </h2>
+
+                    <article class="character-card top_grid" style="margin-bottom:20px;"
+                        data-faction="main sushi-shop black-organization" data-name="胁田兼则">
+                        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                            <img src="images/wakita.jpg" alt="胁田兼则"
+                                style="width:100%; border-radius:5px; object-fit:cover;">
+                        </div>
+                        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">胁田兼则（脇田兼則）
+                            </h3>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 56岁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 千叶繁</p>
+                            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                        class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                                伊吕波寿司店厨师，万马券事件后成为毛利小五郎的二弟子。真实身份是黑衣组织二把手朗姆。</p>
+                        </div>
+                    </article>
+                </section>
+<section id="black-organization" class="character-section group">
+    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold;">
+        <i class="fa fa-briefcase" aria-hidden="true"></i> 黑衣组织
+    </h2>
+    
+    <!-- 乌丸莲耶 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="乌丸莲耶">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/renya.jpg" alt="乌丸莲耶" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">乌丸莲耶（烏丸蓮耶）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                大富豪，黑衣组织Boss，半世纪前99岁高龄时对外宣称去世，被组织成员称为“那位大人”。</p>
+        </div>
+    </article>
+
+    <!-- 朗姆 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="朗姆">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/rum.jpg" alt="朗姆" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">朗姆（ラム）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 千叶繁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                黑衣组织二把手，乌丸莲耶的亲信，库拉索与宾加的上级，现阶段以胁田兼则的身份在寿司店打工，以此调查毛利小五郎。</p>
+        </div>
+    </article>
+
+    <!-- 琴酒 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="琴酒">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/gin.jpg" alt="琴酒" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">琴酒（ジン）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 疑似原名:</strong> 黑泽阵</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 堀之纪</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                黑衣组织成员，负责重要交易、处决不合格成员与间谍，伏特加的上级，赤井秀一的宿敌，爱尔兰的仇人，导致工藤新一变小的元凶，杀害宫野明美的凶手。</p>
+        </div>
+    </article>
+
+    <!-- 伏特加 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="伏特加">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/vodka.jpg" alt="伏特加" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">伏特加（ウォッカ）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 疑似原名:</strong> 鱼冢三郎</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 立木文彦</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                黑衣组织成员，负责重要交易买卖，琴酒的部下。</p>
+        </div>
+    </article>
+
+    <!-- 贝尔摩德 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="贝尔摩德">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/vermouth.jpg" alt="贝尔摩德" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">贝尔摩德（ベルモット）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 外表年龄:</strong> 约29岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 本名/现用名:</strong> 莎朗·温亚德 / 克莉丝·温亚德</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 小山茉美</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                黑衣组织成员，已息影的著名女演员，负责情报搜集与暗杀，乌丸莲耶最宠爱的成员，黑羽盗一的徒弟，工藤有希子的好友，被琴酒称为“秘密主义者”。</p>
+        </div>
+    </article>
+
+    <!-- 基安蒂 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="基安蒂">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/chianti.jpg" alt="基安蒂" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">基安蒂（キャンティ）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 井上喜久子</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                黑衣组织狙击手，科恩的搭档。</p>
+        </div>
+    </article>
+
+    <!-- 科恩 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="科恩">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/korn.jpg" alt="科恩" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">科恩（コルン）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 木下浩之</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                黑衣组织狙击手，基安蒂的搭档。</p>
+        </div>
+    </article>
+
+    <!-- 宫野厚司 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="宫野厚司">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/atsushi.jpg" alt="宫野厚司" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">宫野厚司（宮野厚司）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 去世时年龄:</strong> 17年前去世时约37岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 原白鸠制药员工、宫野诊所医生，前黑衣组织科学家</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 中村悠一</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                负责开发药物“APTX-4869”，宫野艾莲娜的丈夫，宫野明美与宫野志保的父亲，皮斯克的好友，死于组织实验室的意外火灾。</p>
+        </div>
+    </article>
+
+    <!-- 宫野艾莲娜 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="宫野艾莲娜">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/elena.jpg" alt="宫野艾莲娜" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">宫野艾莲娜（宮野エレーナ）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 去世时年龄:</strong> 17年前去世时约31岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 原名/身份:</strong> 世良艾莲娜，原宫野诊所医生，前黑衣组织科学家</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 铃木弘子→林原惠美</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                负责开发药物“APTX-4869”，玛丽·世良的妹妹，宫野厚司的妻子，宫野明美与宫野志保的母亲，皮斯克的好友，降谷零的初恋，死于组织实验室的意外火灾。</p>
+        </div>
+    </article>
+
+    <!-- 宫野明美 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="宫野明美">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/akemi.jpg" alt="宫野明美" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">宫野明美（宮野明美）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约25岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 化名/身份:</strong> 广田雅美，前黑衣组织外围成员，帝丹小学第19届毕业生</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 胜生真沙子→玉川砂记子</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                宫野厚司与宫野艾莲娜的长女，宫野志保的姐姐，赤井秀一的表妹兼前女友，以脱离组织为条件抢劫十亿日元，事后被琴酒杀害。</p>
+        </div>
+    </article>
+
+    <!-- 宫野志保 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="宫野志保">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/shiho.jpg" alt="宫野志保" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">宫野志保（宮野志保）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 18岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 代号/身份:</strong> 雪莉，原黑衣组织科学家</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 林原惠美</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                负责开发药物“APTX-4869”，宫野厚司与宫野艾莲娜的次女，宫野明美的妹妹，在明美死后向组织抗议被囚禁，服下药物变成小学生模样并化名灰原哀。</p>
+        </div>
+    </article>
+
+    <!-- 火伤赤井 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="火伤赤井">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/yakedo.jpg" alt="火伤赤井" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">火伤赤井（火傷の男）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 池田秀一</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                由波本和贝尔摩德假扮，用以试探FBI、灰原哀与世良真纯的对象。</p>
+        </div>
+    </article>
+
+    <!-- 龙舌兰 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="龙舌兰">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/tequila.jpg" alt="龙舌兰" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">龙舌兰（テキーラ）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 广田行生</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                前黑衣组织成员，负责招募研发计算机软件的程序员，与满天堂员工交易时拿错箱子被炸死。</p>
+        </div>
+    </article>
+
+    <!-- 皮斯克 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="皮斯克">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/pisco.jpg" alt="皮斯克" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">皮斯克（ピスコ）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 71岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 本名/身份:</strong> 枡山宪三，前黑衣组织元老成员，汽车公司董事长</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 村松康雄</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                宫野夫妇的好友，被称为“财经界的大人物”，在杯户城市饭店执行暗杀任务时不慎暴露组织，而被琴酒处决。</p>
+        </div>
+    </article>
+
+    <!-- 卡尔瓦多斯 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="卡尔瓦多斯">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/calvados.jpg" alt="卡尔瓦多斯" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">卡尔瓦多斯（カルバドス）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                前黑衣组织狙击手，贝尔摩德的迷恋者，被赤井秀一调侃为“军火商”，在满月对决协助贝尔摩德时被赤井秀一偷袭重伤后自杀。</p>
+        </div>
+    </article>
+
+    <!-- 爱尔兰 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="爱尔兰">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/irish.jpg" alt="爱尔兰" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">爱尔兰（アイリッシュ）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 干本雄之</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                前黑衣组织成员，皮斯克的仰慕者，在调查卧底名单存储卡的下落时不慎暴露，而被基安蒂处决。</p>
+        </div>
+    </article>
+
+    <!-- 库拉索 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="库拉索">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/curacao.jpg" alt="库拉索" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">库拉索（キュラソー）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 天海祐希</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                前黑衣组织成员，朗姆的心腹之一，侦探团三人的朋友，在盗取间谍名单时意外失忆并在恢复记忆后背叛组织，最后为保护侦探团三人被摩天轮辗毙身亡。</p>
+        </div>
+    </article>
+
+    <!-- 宾加 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="宾加">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/pinga.jpg" alt="宾加" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">宾加（ピンガ）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 化名:</strong> 格蕾丝</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 村濑步</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                前黑衣组织成员，朗姆的心腹之一，五年前以法国工程师的身份潜入国际刑警后加入太平洋浮标的核心团队，协助盗取老幼认证系统并绑架灰原哀，最后被琴酒暗算命丧在潜艇自爆中。</p>
+        </div>
+    </article>
+
+    <!-- 沼渊己一郎 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="沼渊己一郎">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/numabuchi.jpg" alt="沼渊己一郎" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">沼渊己一郎（沼淵己一郎）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 龙田直树</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                原黑衣组织外围成员，连续杀人犯，现阶段被逮捕并等待死刑执行。</p>
+        </div>
+    </article>
+
+    <!-- 楠田陆道 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main black-organization" data-name="楠田陆道">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/kusuda.jpg" alt="楠田陆道" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">楠田陆道（楠田陸道）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 岩田光央</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                前黑衣组织外围成员，奉琴酒之命伪装病人在杯户中央医院调查基尔的下落，在身份暴露后的逃亡中开枪自杀。</p>
+        </div>
+    </article>
+</section>
+
+<section id="fbi" class="character-section group">
+    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold; margin-top:30px;">
+        <i class="fa fa-shield" aria-hidden="true"></i> 美国联邦调查局（FBI）
+    </h2>
+    
+    <!-- 詹姆斯·布莱克 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main fbi" data-name="詹姆斯·布莱克">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/james.jpg" alt="詹姆斯·布莱克" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">詹姆斯·布莱克（ジェイムズ·ブラック）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 家弓家正→土师孝也</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                FBI高级搜查官，赤井秀一、茱蒂·斯泰琳和安德雷·卡迈尔的上级。</p>
+        </div>
+    </article>
+
+    <!-- 茱蒂·斯泰琳 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main fbi" data-name="茱蒂·斯泰琳">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/jodie.jpg" alt="茱蒂·斯泰琳" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">茱蒂·斯泰琳（ジョディ·スターリング）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 28岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 化名:</strong> 茱蒂·圣提米利翁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 一城美由希、冬马由美（幼年）</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                FBI搜查官，前帝丹高中英语老师，詹姆斯·布莱克的下属，赤井秀一的前女友兼同事，安德雷·卡迈尔的同事，毛利兰和铃木园子的老师，贝尔摩德的仇人。</p>
+        </div>
+    </article>
+
+    <!-- 安德雷·卡迈尔 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main fbi" data-name="安德雷·卡迈尔">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/camel.jpg" alt="安德雷·卡迈尔" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">安德雷·卡迈尔（アンドレ·キャメル）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 初登场时27岁，《侦探团VS强盗团》后28岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 梁田清之→乃村健次</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                FBI搜查官，詹姆斯·布莱克的下属，赤井秀一和茱蒂·斯泰琳的同事。</p>
+        </div>
+    </article>
+</section>
+
+<section id="cia" class="character-section group">
+    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold; margin-top:30px;">
+        <i class="fa fa-flag" aria-hidden="true"></i> 美国中央情报局（CIA）
+    </h2>
+    
+    <!-- 伊森·本堂 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main cia" data-name="伊森·本堂">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/ethan.jpg" alt="伊森·本堂" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">伊森·本堂（イーサン·本堂）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 化名:</strong> 坪内、石井</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 小山力也</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                前CIA谍报员，曾潜伏在黑衣组织的卧底，本堂瑛海与本堂瑛祐的父亲，4年前为保护身份暴露的瑛海自杀殉职。</p>
+        </div>
+    </article>
+
+    <!-- 水无怜奈 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main cia black-organization" data-name="水无怜奈">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/rena.jpg" alt="水无怜奈" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">水无怜奈（水無怜奈）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 27岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 本名/代号:</strong> 本堂瑛海，基尔</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 三石琴乃</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                CIA谍报员、临时联络员，原日卖电视台主持人兼记者，潜伏在黑衣组织的卧底，伊森·本堂的长女，本堂瑛祐的姐姐，冲野洋子的好友，琴酒的下属。</p>
+        </div>
+    </article>
+</section>
+
+<section id="mi6" class="character-section group">
+    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold; margin-top:30px;">
+        <i class="fa fa-university" aria-hidden="true"></i> 英国陆军情报六局（MI6）
+    </h2>
+    
+    <!-- 赤井务武 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main mi6" data-name="赤井务武">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/tsutomu.jpg" alt="赤井务武" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">赤井务武（赤井務武）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 山寺宏一</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                MI6特工，赤井玛丽的丈夫，赤井秀一、羽田秀吉与世良真纯的父亲，羽田康晴的好友，17年前赴美调查羽田浩司案时失踪，现阶段生死不明。</p>
+        </div>
+    </article>
+
+    <!-- 赤井玛丽 -->
+    <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main mi6" data-name="赤井玛丽">
+        <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+            <img src="images/mary.jpg" alt="赤井玛丽" style="width:100%; border-radius:5px; object-fit:cover;">
+        </div>
+        <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+            <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">赤井玛丽（赤井メアリー）</h3>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约53岁</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 原名/外号:</strong> 玛丽·世良，领域外的妹妹</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 田中敦子→本田贵子</p>
+            <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                MI6特工，世良艾莲娜的姐姐，赤井务武的妻子，赤井秀一、羽田秀吉与世良真纯的母亲，几个月前在伦敦被假扮务武的贝尔摩德灌药变小，现阶段与世良返回日本试探柯南并争夺解药。</p>
+        </div>
+    </article>
+</section>
+
+<!-- 警视厅 开始 -->
+<section id="police" class="character-section group">
+    <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold; margin-top:30px;">
+        <i class="fa fa-shield" aria-hidden="true"></i> 警视厅
+    </h2>
+
+    <!-- 警视厅刑事部高层 -->
+    <div class="camp-sub">
+        <h3 style="color:#758084; font-size:18px; padding:5px 0; font-weight:bold; margin-left:15px;">警视厅刑事部高层</h3>
+        
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="小田切敏郎">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/odagiri.jpg" alt="小田切敏郎" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">小田切敏郎（小田切敏郎）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 56岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部部长，警衔警视长</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 中田浩二</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    居合斩高手，小田切敏也的父亲，毛利小五郎的前上级。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="松本清长">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/matsumoto.jpg" alt="松本清长" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">松本清长（松本清長）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 54岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 前警视厅刑事部搜查一课管理官，警衔警视（现警视正）</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 加藤精三</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    松本小百合的父亲，目暮十三的前上级，现阶段升至警视正。</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- 警视厅刑事部搜查一课 -->
+    <div class="camp-sub">
+        <h3 style="color:#758084; font-size:18px; padding:5px 0; font-weight:bold; margin-left:15px;">警视厅刑事部搜查一课</h3>
+        
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="黑田兵卫">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/kuroda.jpg" alt="黑田兵卫" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">黑田兵卫（黒田兵衛）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 50岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查一课管理官，警衔警视</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 岸野幸正</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    前警察厅警备局警备企划课的公安警察，长野县警察本部刑事部搜查一课课长，目暮十三的现任上级，于17年前的秘密任务遭遇严重车祸重伤昏迷10年，苏醒后被暂时调至长野县，后回到东京接替松本清长的职务。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="目暮十三">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/megure.jpg" alt="目暮十三" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">目暮十三（目暮十三）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约42岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查一课强行犯搜查三系系长，警衔警部</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 茶风林</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    目暮绿的丈夫，中森银三的警校同期，白鸟任三郎的同事，毛利小五郎的前上级。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="白鸟任三郎">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/shiratori.jpg" alt="白鸟任三郎" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">白鸟任三郎（白鳥任三郎）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约28岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查一课强行犯搜查三系刑事，警衔警部，职业组出身</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 盐泽兼人→井上和彦、本田贵子（幼年）</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    绫小路文麿的警校同期，目暮十三的同事，小林澄子的青梅竹马兼男友。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="佐藤美和子">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/sato.jpg" alt="佐藤美和子" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">佐藤美和子（佐藤美和子）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约28岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查一课强行犯搜查三系刑事，警衔警部补</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 汤屋敦子</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    佐藤正义的女儿，目暮十三的下属，高木涉的上级兼恋人，松田阵平的后辈、前同事兼搭档。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="高木涉">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/takagi.jpg" alt="高木涉" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">高木涉（高木渉）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约26岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查一课强行犯搜查三系刑警，警衔巡查部长</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 高木涉</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    目暮十三的下属，千叶和伸的同事，佐藤美和子的下属兼恋人，与前辈伊达航被称为“Wataru兄弟”。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="千叶和伸">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/chiba.jpg" alt="千叶和伸" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">千叶和伸（千葉和伸）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 24岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查一课强行犯搜查三系刑警，警衔巡查部长，帝丹小学第20届毕业生</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 千叶一伸、爱河里花子（少年）</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    目暮十三的下属，高木涉的同事，三池苗子的青梅竹马、同班同学兼恋人。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="佐藤正义">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/sato-masayoshi.jpg" alt="佐藤正义" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">佐藤正义（佐藤正義）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 前警视厅刑事部搜查一课强行犯搜查三系警部</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 大川透</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    佐藤美和子的父亲，18年前为拯救好友鹿野修二遭遇车祸殉职，死后被追授为警视正。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="弓长">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/yuminaga.jpg" alt="弓长" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">弓长（弓長）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查一课纵火犯搜查一系长官，警衔警部</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 德宏夏生</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    毛利小五郎在纵火犯科系的上级，被称为“火灾老爹”。</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- 警视厅刑事部搜查二课 -->
+    <div class="camp-sub">
+        <h3 style="color:#758084; font-size:18px; padding:5px 0; font-weight:bold; margin-left:15px;">警视厅刑事部搜查二课</h3>
+        
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="茶木神太郎">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/chaki.jpg" alt="茶木神太郎" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">茶木神太郎（茶木神太郎）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 49岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查二课警视</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 田中信夫</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    中森银三的上级，以逮捕怪盗基德为终极目标。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="中森银三">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/nakamori.jpg" alt="中森银三" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">中森银三（中森銀三）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 初登场时41岁，现已42岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查二课智能犯搜查系警部</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 石冢运昇→石井康嗣</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    茶木神太郎的下属，中森碧子的丈夫，中森青子的父亲，铃木次郎吉的合作伙伴，两代怪盗基德的对手。来自《魔术快斗》。</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- 警视厅刑事部搜查三课 -->
+    <div class="camp-sub">
+        <h3 style="color:#758084; font-size:18px; padding:5px 0; font-weight:bold; margin-left:15px;">警视厅刑事部搜查三课</h3>
+        
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="百濑">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/momose.jpg" alt="百濑" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">百濑（百瀬）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部搜查三课警部</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 盐屋浩三</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    主管一般盗窃案。</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- 警视厅刑事部鉴识课 -->
+    <div class="camp-sub">
+        <h3 style="color:#758084; font-size:18px; padding:5px 0; font-weight:bold; margin-left:15px;">警视厅刑事部鉴识课</h3>
+        
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="登米">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/tome.jpg" alt="登米" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">登米（トメさん）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅刑事部鉴识课鉴识官</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 中岛聪彦、卷岛直树、长嶝高士、大西健晴</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    负责验尸与收集案发现场的痕迹。</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- 警视厅交通部 -->
+    <div class="camp-sub">
+        <h3 style="color:#758084; font-size:18px; padding:5px 0; font-weight:bold; margin-left:15px;">警视厅交通部</h3>
+        
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="宫本由美">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/miyamoto.jpg" alt="宫本由美" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">宫本由美（宮本由美）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 约28岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅交通部交通执行课女警，警衔警部补</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 杉本优</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    三池苗子的上级，佐藤美和子的好友，羽田秀吉的女友。</p>
+            </div>
+        </article>
+
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="三池苗子">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/miike.jpg" alt="三池苗子" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">三池苗子（三池苗子）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 24岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅交通部交通执行课女警，警衔巡查部长，帝丹小学第20届毕业生</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 田中理惠</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    宫本由美的下属，米原樱子的幼年玩伴兼同校同学，千叶和伸的青梅竹马、同班同学兼恋人。</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- 警视厅公安部 -->
+    <div class="camp-sub">
+        <h3 style="color:#758084; font-size:18px; padding:5px 0; font-weight:bold; margin-left:15px;">警视厅公安部</h3>
+        
+        <article class="character-card top_grid" style="margin-bottom:20px;" data-faction="main police" data-name="风见裕也">
+            <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                <img src="images/kazami.jpg" alt="风见裕也" style="width:100%; border-radius:5px; object-fit:cover;">
+            </div>
+            <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">风见裕也（風見裕也）</h3>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 30岁</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card" aria-hidden="true"></i> 身份:</strong> 警视厅公安部的公安警察，警衔警部补，化名飞田男六</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-microphone" aria-hidden="true"></i> 声优:</strong> 飞田展男</p>
+                <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                    安室透的部下，冲野洋子的粉丝。</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+            </main>
+        </div>
+
+        <footer class="footer"
+            style="background:#2c3e50; color:white; text-align:center; padding:20px; margin-top:30px; border-radius:5px 5px 0 0;">
+            <div class="copy-right">
+                <p>&copy; 2025 名侦探柯南社区 | 本网站为粉丝制作，非官方
+                    <a target="_blank" href="https://www.conan-portal.com/" title="官方网站">
+                        <i class="fa fa-external-link" aria-hidden="true"></i> 官方网站
+                    </a>
+                </p>
+                <p style="margin-top:8px; font-size:0.9em; opacity:0.9;"><i class="fa fa-database"
+                        aria-hidden="true"></i> 数据来源: 柯南百科 • 最后更新: 2025年7月</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // 菜单切换功能
+        document.getElementById('menu-toggle').addEventListener('click', function (e) {
+            e.preventDefault();
+            const nav = document.querySelector('.simple-toggle');
+            nav.classList.toggle('open');
+        });
+
+        // 阵营筛选功能
+        document.querySelectorAll('.faction-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const faction = this.getAttribute('data-faction');
+                const targetId = this.getAttribute('href');
+
+                // 滚动到目标区域
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // 高亮当前选中的索引项
+                document.querySelectorAll('.faction-link').forEach(el => {
+                    el.classList.remove('active');
+                    el.style.color = '#3498db';
+                });
+                this.classList.add('active');
+                this.style.color = '#e17c65';
+
+                // 筛选角色卡片
+                document.querySelectorAll('.character-card').forEach(card => {
+                    if (faction === 'all' || card.getAttribute('data-faction').includes(faction)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 搜索功能
+        document.getElementById('characterSearch').addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase().trim();
+
+            document.querySelectorAll('.character-card').forEach(card => {
+                const characterName = card.getAttribute('data-name').toLowerCase();
+                if (searchTerm === '' || characterName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // 页面加载时显示所有角色
+        window.addEventListener('load', function () {
+            document.querySelectorAll('.character-card').forEach(card => {
+                card.style.display = 'block';
+            });
+        });
+    </script>
+    <style>
+        /* 响应式适配 */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+
+            .character-index-sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+            }
+
+            .index-columns {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .images_1_of_3 {
+                width: 30% !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .images_1_of_3 {
+                width: 100% !important;
+                float: none !important;
+            }
+
+            .character-info.span_2_of_3 {
+                width: 100% !important;
+                float: none !important;
+            }
+        }
+
+        /* 搜索和筛选样式增强 */
+        #characterSearch:focus {
+            outline: none;
+            border-color: #e17c65;
+            box-shadow: 0 0 0 2px rgba(225, 124, 101, 0.2);
+        }
+
+        .faction-link.active {
+            color: #e17c65 !important;
+            font-weight: bold;
+        }
+
+        .character-card {
+            transition: all 0.3s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</body>
+
+</html>

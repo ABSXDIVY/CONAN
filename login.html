@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名侦探柯南社区 - 登录与注册</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sign In -->
+        <div class="form-container sign-in-container">
+            <form id="loginForm">
+                <h1 class="form-title">登录</h1>
+                <div class="social-container">
+                    <a href="https://weibo.com/newlogin?tabtype=weibo&gid=102803&openLoginLayer=0&url=" class="social third-party-login" target="_blank">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                    <a href="https://wx.qq.com/" class="social third-party-login" target="_blank">
+                        <i class="fa fa-wechat"></i>
+                    </a>
+                    <a href="https://im.qq.com/index/" class="social third-party-login" target="_blank">
+                        <i class="fa fa-qq"></i>
+                    </a>
+                </div>
+                <span>或使用账号登录</span>
+                <input type="email" placeholder="邮箱" />
+                <input type="password" placeholder="密码" />
+                <a href="#" class="forgot-password">忘记密码?</a>
+                <button class="form-btn">登录</button>
+            </form>
+        </div>
+        
+        <!-- Sign Up -->
+        <div class="form-container sign-up-container">
+            <form id="registerForm">
+                <h1 class="form-title">注册</h1>
+                <div class="social-container">
+                    <a href="https://weibo.com/newlogin?tabtype=weibo&gid=102803&openLoginLayer=0&url=" class="social third-party-login" target="_blank">
+                        <i class="fa fa-weibo"></i>
+                    </a>
+                    <a href="https://wx.qq.com/" class="social third-party-login" target="_blank">
+                        <i class="fa fa-wechat"></i>
+                    </a>
+                    <a href="https://im.qq.com/index/" class="social third-party-login" target="_blank">
+                        <i class="fa fa-qq"></i>
+                    </a>
+                </div>
+                <span>或使用邮箱注册</span>
+                <input type="text" placeholder="用户名" />
+                <input type="email" placeholder="邮箱" />
+                <input type="password" placeholder="密码" />
+                <button class="form-btn">注册</button>
+            </form>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 class="overlay-title">欢迎回来！</h1>
+                    <p class="overlay-text">已有账号？点击登录按钮进入社区</p>
+                    <button class="ghost form-btn" id="signIn">登录</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class="overlay-title">你好，朋友！</h1>
+                    <p class="overlay-text">还没有账号？点击注册按钮加入我们</p>
+                    <button class="ghost form-btn" id="signUp">注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>名侦探柯南社区 - 主页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/flexslider.css">
+    <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script defer src="./js/jquery.flexslider.js"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="wrap">
+        <div class="header-top">
+            <div class="top-nav">
+                <ul class="simple-toggle" id="menu">
+                    <li>
+                        <a href="index.html">
+                            <span class="fa fa-home">社区主页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="characters.html">
+                            <span class="fa fa-users">人物简介</span>
+                        </a>
+                    </li>
+                    <li class="logo">
+                        <a href="index.html">
+                            <h1><i aria-hidden="true"></i>社区主页</h1>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="episodes.html">
+                           <span class="fa fa-play-circle">剧集观看</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="relationships.html">
+                            <span class="fa fa-sitemap">人物关系</span>
+                        </a>
+                    </li>
+                </ul>
+                <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#menu-toggle').click(function(e) {
+                                $('#menu').toggleClass('open');
+                                e.preventDefault();
+                            });
+                            $('.simple-toggle li a').click(function(e) {
+                                $('.simple-toggle li').removeClass('active');
+                                $(this).parent('li').addClass('active');
+                            });
+                        });
+                </script>
+            </div>
+        </div>
+            <div class="banner">
+                <div class="banner-text">
+                    <h2><span>真相永远只有一个</span></h2>
+                </div>
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li><img src="./images/conan-banner1.jpg" alt="柯南剧场版海报" /></li>
+                        <li><img src="./images/conan-banner2.jpg" alt="柯南与小兰" /></li>
+                        <li><img src="./images/conan-banner3.jpg" alt="红黑对决" /></li>
+                    </ul>
+                    <script type="text/javascript">
+                        $(window).load(function(){
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                controlNav: false
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+    </div>
+    <div class="wrap">
+        <div class="content">
+            <section class="latest-news section group">
+                <h2><i class="fa fa-newspaper-o" aria-hidden="true"></i> 最新资讯</h2>
+                <div class="subtitle">及时了解柯南系列的最新动态</div>
+                <div class="grid_1_of_3 images_1_of_3 top_grid">
+                    <div class="topgrid-desc">
+                        <h3><i class="fa fa-film" aria-hidden="true"></i> 剧场版《名侦探柯南：100万美金的五稜星》上映</h3>
+                        <p>最新剧场版已于2023年4月14日在日本上映，创下系列最高票房纪录，故事围绕一颗价值百万美金的五稜星宝石展开...</p>
+                        <time datetime="2023-04-15"><i class="fa fa-calendar" aria-hidden="true"></i> 2023年4月15日</time>
+                    </div>
+                </div>
+                <div class="grid_1_of_3 images_1_of_3 top_grid">
+                    <div class="topgrid-desc">
+                        <h3><i class="fa fa-television" aria-hidden="true"></i> TV动画突破1100集</h3>
+                        <p>名侦探柯南TV动画于2023年3月播出第1100集，成为日本最长寿的推理动画之一。第1100集特别篇围绕"红黑双方的秘密计划"展开...</p>
+                        <time datetime="2023-03-18"><i class="fa fa-calendar" aria-hidden="true"></i> 2023年3月18日</time>
+                    </div>
+                </div>
+            </section>
+            <section class="featured-character content-middle">
+                <div class="content-middle-top">
+                    <h4><i class="fa fa-star" aria-hidden="true"></i> 本周焦点人物</h4>
+                </div>
+                <div class="content-middle-desc">
+                    <div class="section group">
+                        <div class="lsidebar span_3_of_1">
+                            <img src="./images/conan.jpg" alt="江户川柯南" />
+                        </div>
+                        <div class="cont span_3_of_2">
+                            <h3>江户川柯南</h3>
+                            <p>原名工藤新一，因被黑衣组织灌下毒药而变成小孩模样，现寄住在毛利侦探事务所...</p>
+                            <div class="more-info"><a href="characters.html#conan"><i class="fa fa-arrow-right" aria-hidden="true"></i> 了解更多</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="wrap">
+            <div class="copy-right">
+                <p>&copy; 2023 名侦探柯南社区 | 本网站为粉丝制作，非官方 
+                    <a target="_blank" href="http://www.konan.com" title="官方网站">
+                        <i class="fa fa-external-link" aria-hidden="true"></i> 官方网站
+                    </a>
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</body>
+</html>

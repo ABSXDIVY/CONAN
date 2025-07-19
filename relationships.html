@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物关系 - 名侦探柯南社区</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/relationship.css"> <!-- 引入新的CSS文件 -->
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Source+Sans+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header-top">
+                <div class="top-nav">
+                    <ul class="simple-toggle" id="menu">
+                        <li>
+                            <a href="index.html">
+                                <span class="fa fa-home">社区主页</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="characters.html">
+                                <span class="fa fa-users">人物简介</span>
+                            </a>
+                        </li>
+                        <li class="logo">
+                            <a href="relationships.html">
+                                <h1><i aria-hidden="true"></i>人物关系</h1>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="episodes.html">
+                                <span class="fa fa-play-circle">剧集观看</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reviews.html">
+                                <span class="fa fa-commentary">热门解说</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="user-profile.html">
+                                <span class="fa fa-user">个人中心</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="anchor-link" id="mobile-nav"><i class="fa fa-bars" aria-hidden="true"></i> 菜单</a>
+                </div>
+            </div>
+
+            <div class="banner">
+                <img src="images/banner.jpg" alt="名侦探柯南社区" style="width:100%; border-radius:5px;">
+                <div class="banner-text">
+                    <h2>交互式人物关系图谱</h2>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <h1 style="color:#758084; font-size:28px; padding:15px 0; border-bottom:1px solid #f4f5f5;">
+                <i class="fa fa-sitemap" aria-hidden="true"></i> 人物关系图谱
+            </h1>
+
+            <div class="relationship-intro" style="margin:20px 0; padding:15px; background:#f8f9fa; border-radius:5px;">
+                <p style="color:#666; line-height:1.6;"><i class="fa fa-info-circle" aria-hidden="true"
+                        style="color:#3498db;"></i> 点击下方人物头像，该人物将移动到中央位置，同时显示其关联人物。再次点击其他人物可切换中心人物。</p>
+            </div>
+
+            <!-- 关系图谱画布 -->
+            <div class="relationship-canvas" id="relationshipCanvas">
+
+                <button class="fullscreen-btn" id="fullscreenBtn">
+                    <i class="fa fa-expand" aria-hidden="true"></i>
+                </button>
+                <!-- 连接线容器 -->
+                <div id="connectionLines"></div>
+
+                <!-- 关系标签容器 -->
+                <div id="relationshipLabels"></div>
+
+                <!-- 人物头像将通过JS动态生成 -->
+            </div>
+
+            <div class="relationship-legend"
+                style="margin:20px 0; padding:15px; background:white; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+                <h3
+                    style="color:#758084; font-size:18px; margin-top:0; padding-bottom:10px; border-bottom:1px solid #eee;">
+                    <i class="fa fa-key" aria-hidden="true"></i> 关系说明
+                </h3>
+                <ul style="list-style:none; padding:0; margin:10px 0 0;">
+                    <li style="padding:5px 0; color:#666;"><i class="fa fa-heart" aria-hidden="true"
+                            style="color:#e74c3c;"></i> 恋爱关系</li>
+                    <li style="padding:5px 0; color:#666;"><i class="fa fa-users" aria-hidden="true"
+                            style="color:#3498db;"></i> 朋友关系</li>
+                    <li style="padding:5px 0; color:#666;"><i class="fa fa-briefcase" aria-hidden="true"
+                            style="color:#2ecc71;"></i> 同事关系</li>
+                    <li style="padding:5px 0; color:#666;"><i class="fa fa-graduation-cap" aria-hidden="true"
+                            style="color:#9b59b6;"></i> 同学关系</li>
+                    <li style="padding:5px 0; color:#666;"><i class="fa fa-search" aria-hidden="true"
+                            style="color:#f39c12;"></i> 侦探伙伴</li>
+                    <li style="padding:5px 0; color:#666;"><i class="fa fa-legal" aria-hidden="true"
+                            style="color:#1abc9c;"></i> 家人关系</li>
+                    <li style="padding:5px 0; color:#666;"><i class="fa fa-bolt" aria-hidden="true"
+                            style="color:#e74c3c;"></i> 敌对关系</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer"
+            style="background:#2c3e50; color:white; text-align:center; padding:20px; margin-top:30px; border-radius:5px 5px 0 0;">
+            <div class="copy-right">
+                <p>&copy; 2025 名侦探柯南社区 | 本网站为粉丝制作，非官方
+                    <a target="_blank" href="https://www.conan-portal.com/" title="官方网站">
+                        <i class="fa fa-external-link" aria-hidden="true"></i> 官方网站
+                    </a>
+                </p>
+                <p style="margin-top:8px; font-size:0.9em; opacity:0.9;"><i class="fa fa-database"
+                        aria-hidden="true"></i> 数据来源: Bilibili • 最后更新: 2025年7月</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // 人物数据及关系
+        const characters = [
+            // 主角阵营
+            {
+                id: "conan",
+                name: "江户川柯南",
+                image: "images/conan.jpg",
+                relationships: [
+                    { target: "ran", type: "love" },
+                    { target: "shinichi", type: "identity" },
+                    { target: "haibara", type: "teammate" },
+                    { target: "kogoro", type: "host" },
+                    { target: "heiji", type: "partner" },
+                    { target: "detectiveBoys", type: "leader" },
+                    { target: "agasa", type: "assist" }
+                ]
+            },
+            {
+                id: "shinichi",
+                name: "工藤新一",
+                image: "images/shinichi.jpg",
+                relationships: [
+                    { target: "conan", type: "identity" },
+                    { target: "ran", type: "love" },
+                    { target: "heiji", type: "partner" },
+                    { target: "yusaku", type: "family" },
+                    { target: "yukiko", type: "family" }
+                ]
+            },
+            {
+                id: "ran",
+                name: "毛利兰",
+                image: "images/ran.jpg",
+                relationships: [
+                    { target: "conan", type: "care" },
+                    { target: "shinichi", type: "love" },
+                    { target: "sonoko", type: "friend" },
+                    { target: "kogoro", type: "family" }
+                ]
+            },
+            {
+                id: "haibara",
+                name: "灰原哀",
+                image: "images/haibara.jpg",
+                relationships: [
+                    { target: "conan", type: "teammate" },
+                    { target: "agasa", type: "host" },
+                    { target: "gin", type: "enemy" },
+                    { target: "akemi", type: "family" },
+                    { target: "mary", type: "family" },
+                    { target: "detectiveBoys", type: "teammate" }
+                ]
+            },
+            {
+                id: "agasa",
+                name: "阿笠博士",
+                image: "images/agasa.jpg",
+                relationships: [
+                    { target: "conan", type: "assist" },
+                    { target: "haibara", type: "host" },
+                    { target: "detectiveBoys", type: "assist" }
+                ]
+            },
+            {
+                id: "heiji",
+                name: "服部平次",
+                image: "images/heiji.jpg",
+                relationships: [
+                    { target: "shinichi", type: "partner" },
+                    { target: "kazuha", type: "love" },
+                    { target: "conan", type: "partner" }
+                ]
+            },
+            {
+                id: "kazuha",
+                name: "远山和叶",
+                image: "images/kazuha.jpg",
+                relationships: [
+                    { target: "heiji", type: "love" }
+                ]
+            },
+            {
+                id: "yusaku",
+                name: "工藤优作",
+                image: "images/yusaku.jpg",
+                relationships: [
+                    { target: "shinichi", type: "family" },
+                    { target: "yukiko", type: "love" }
+                ]
+            },
+            {
+                id: "yukiko",
+                name: "工藤有希子",
+                image: "images/yukiko.jpg",
+                relationships: [
+                    { target: "shinichi", type: "family" },
+                    { target: "yusaku", type: "love" },
+                    { target: "vermouth", type: "rival" }
+                ]
+            },
+
+            // 黑衣组织
+            {
+                id: "karasuma",
+                name: "乌丸莲耶",
+                image: "images/karasuma.jpg",
+                relationships: [
+                    { target: "rum", type: "subordinate" },
+                    { target: "gin", type: "subordinate" }
+                ]
+            },
+            {
+                id: "rum",
+                name: "朗姆（胁田兼则）",
+                image: "images/rum.jpg",
+                relationships: [
+                    { target: "karasuma", type: "superior" },
+                    { target: "camel", type: "enemy" }
+                ]
+            },
+            {
+                id: "gin",
+                name: "琴酒",
+                image: "images/gin.jpg",
+                relationships: [
+                    { target: "karasuma", type: "subordinate" },
+                    { target: "vodka", type: "partner" },
+                    { target: "haibara", type: "hunt" },
+                    { target: "akemi", type: "kill" }
+                ]
+            },
+            {
+                id: "vodka",
+                name: "伏特加",
+                image: "images/vodka.jpg",
+                relationships: [
+                    { target: "gin", type: "subordinate" }
+                ]
+            },
+            {
+                id: "vermouth",
+                name: "贝尔摩德",
+                image: "images/vermouth.jpg",
+                relationships: [
+                    { target: "conan", type: "secret" },
+                    { target: "haibara", type: "secret" },
+                    { target: "yukiko", type: "rival" }
+                ]
+            },
+            {
+                id: "kir",
+                name: "基尔（本堂瑛海）",
+                image: "images/kir.jpg",
+                relationships: [
+                    { target: "eisen", type: "family" },
+                    { target: "瑛佑", type: "family" },
+                    { target: "gin", type: "pretend" }
+                ]
+            },
+            {
+                id: "bourbon",
+                name: "波本（安室透）",
+                relationships: [
+                    { target: "zero", type: "identity" },
+                    { target: "gin", type: "pretend" },
+                    { target: "kogoro", type: "apprentice" },
+                    { target: "akai", type: "enemy" },
+                    { target: "furuya", type: "identity" }
+                ]
+            },
+
+            // 日本警方
+            {
+                id: "megure",
+                name: "目暮十三",
+                image: "images/megure.jpg",
+                relationships: [
+                    { target: "kogoro", type: "depend" },
+                    { target: "satou", type: "subordinate" }
+                ]
+            },
+            {
+                id: "satou",
+                name: "佐藤美和子",
+                image: "images/satou.jpg",
+                relationships: [
+                    { target: "takagi", type: "love" },
+                    { target: "megure", type: "superior" }
+                ]
+            },
+            {
+                id: "takagi",
+                name: "高木涉",
+                image: "images/takagi.jpg",
+                relationships: [
+                    { target: "satou", type: "love" },
+                    { target: "detectiveBoys", type: "friendly" }
+                ]
+            },
+            {
+                id: "shiratori",
+                name: "白鸟任三郎",
+                image: "images/shiratori.jpg",
+                relationships: [
+                    { target: "kozue", type: "love" }
+                ]
+            },
+            {
+                id: "kozue",
+                name: "小林澄子",
+                image: "images/kozue.jpg",
+                relationships: [
+                    { target: "shiratori", type: "love" }
+                ]
+            },
+            {
+                id: "yamato",
+                name: "大和敢助",
+                image: "images/yamato.jpg",
+                relationships: [
+                    { target: "yui", type: "love" },
+                    { target: "takaaki", type: "colleague" }
+                ]
+            },
+            {
+                id: "takaaki",
+                name: "诸伏高明",
+                image: "images/takaaki.jpg",
+                relationships: [
+                    { target: "yamato", type: "colleague" },
+                    { target: "furuya", type: "friend" },
+                    { target: "michiru", type: "family" }
+                ]
+            },
+            {
+                id: "yui",
+                name: "上原由衣",
+                image: "images/yui.jpg",
+                relationships: [
+                    { target: "yamato", type: "love" }
+                ]
+            },
+
+            // 情报机构
+            {
+                id: "zero",
+                name: "降谷零（安室透）",
+                image: "images/zero.jpg",
+                relationships: [
+                    { target: "bourbon", type: "identity" },
+                    { target: "kazami", type: "subordinate" },
+                    { target: "michiru", type: "classmate" },
+                    { target: "akai", type: "enemy" }
+                ]
+            },
+            {
+                id: "michiru",
+                name: "诸伏景光（苏格兰）",
+                image: "images/michiru.jpg",
+                relationships: [
+                    { target: "zero", type: "classmate" },
+                    { target: "takaaki", type: "family" },
+                    { target: "akai", type: "death" }
+                ]
+            },
+            {
+                id: "akai",
+                name: "赤井秀一（冲矢昴）",
+                image: "images/akai.jpg",
+                relationships: [
+                    { target: "subaru", type: "identity" },
+                    { target: "jodie", type: "colleague" },
+                    { target: "camel", type: "subordinate" },
+                    { target: "akemi", type: "love" },
+                    { target: "zero", type: "enemy" },
+                    { target: "mary", type: "family" }
+                ]
+            },
+            {
+                id: "subaru",
+                name: "冲矢昴",
+                relationships: [
+                    { target: "akai", type: "identity" }
+                ]
+            },
+            {
+                id: "jodie",
+                name: "茱蒂·史坦林",
+                image: "images/jodie.jpg",
+                relationships: [
+                    { target: "akai", type: "colleague" },
+                    { target: "vermouth", type: "revenge" }
+                ]
+            },
+            {
+                id: "camel",
+                name: "安德烈·卡迈尔",
+                image: "images/camel.jpg",
+                relationships: [
+                    { target: "akai", type: "subordinate" },
+                    { target: "rum", type: "enemy" }
+                ]
+            },
+            {
+                id: "eisen",
+                name: "伊森·本堂",
+                image: "images/eisen.jpg",
+                relationships: [
+                    { target: "kir", type: "family" }
+                ]
+            },
+            {
+                id: "mary",
+                name: "赤井玛丽（领域外的妹妹）",
+                image: "images/mary.jpg",
+                relationships: [
+                    { target: "akai", type: "family" },
+                    { target: "haibara", type: "family" },
+                    { target: "shuuichi", type: "family" }
+                ]
+            },
+            {
+                id: "shuuichi",
+                name: "赤井务武",
+                image: "images/shuuichi.jpg",
+                relationships: [
+                    { target: "mary", type: "love" },
+                    { target: "akai", type: "family" }
+                ]
+            },
+
+            // 其他关键人物
+            {
+                id: "kogoro",
+                name: "毛利小五郎",
+                image: "images/kogoro.jpg",
+                relationships: [
+                    { target: "ran", type: "family" },
+                    { target: "conan", type: "host" },
+                    { target: "bourbon", type: "master" }
+                ]
+            },
+            {
+                id: "sonoko",
+                name: "铃木园子",
+                image: "images/sonoko.jpg",
+                relationships: [
+                    { target: "ran", type: "friend" },
+                    { target: "makoto", type: "love" }
+                ]
+            },
+            {
+                id: "makoto",
+                name: "京极真",
+                image: "images/makoto.jpg",
+                relationships: [
+                    { target: "sonoko", type: "love" }
+                ]
+            },
+            {
+                id: "detectiveBoys",
+                name: "少年侦探团",
+                image: "images/detectiveBoys.jpg",
+                relationships: [
+                    { target: "conan", type: "leader" },
+                    { target: "haibara", type: "teammate" }
+                ]
+            },
+            {
+                id: "akemi",
+                name: "宫野明美",
+                image: "images/akemi.jpg",
+                relationships: [
+                    { target: "haibara", type: "family" },
+                    { target: "akai", type: "love" },
+                    { target: "gin", type: "death" }
+                ]
+            },
+            {
+                id: "瑛佑",
+                name: "本堂瑛祐",
+                image: "images/瑛佑.jpg",
+                relationships: [
+                    { target: "kir", type: "family" }
+                ]
+            },
+            {
+                id: "kazami",
+                name: "风见裕也",
+                image: "images/kazami.jpg",
+                relationships: [
+                    { target: "zero", type: "subordinate" }
+                ]
+            }
+        ];
+
+        // 关系类型配置
+        const relationshipTypes = {
+            love: { icon: "fa-heart", color: "#e74c3c", label: "恋人" },
+            friend: { icon: "fa-users", color: "#3498db", label: "朋友" },
+            family: { icon: "fa-legal", color: "#1abc9c", label: "家人" },
+            identity: { icon: "fa-exchange", color: "#f39c12", label: "同一人" },
+            enemy: { icon: "fa-bolt", color: "#e74c3c", label: "敌对" },
+            rival: { icon: "fa-trophy", color: "#f1c40f", label: "对手" },
+            host: { icon: "fa-home", color: "#95a5a6", label: "寄宿" },
+            teammate: { icon: "fa-briefcase", color: "#2ecc71", label: "搭档" },
+            partner: { icon: "fa-handshake-o", color: "#3498db", label: "侦探搭档" },
+            assist: { icon: "fa-wrench", color: "#7f8c8d", label: "协助" },
+            subordinate: { icon: "fa-chevron-down", color: "#95a5a6", label: "下属" },
+            superior: { icon: "fa-chevron-up", color: "#95a5a6", label: "上级" },
+            hunt: { icon: "fa-search", color: "#e74c3c", label: "追杀" },
+            kill: { icon: "fa-ban", color: "#c0392b", label: "处决" },
+            pretend: { icon: "fa-mask", color: "#9b59b6", label: "伪装" },
+            apprentice: { icon: "fa-graduation-cap", color: "#3498db", label: "徒弟" },
+            master: { icon: "fa-graduation-cap", color: "#3498db", label: "师父" },
+            depend: { icon: "fa-hand-paper-o", color: "#7f8c8d", label: "依赖" },
+            friendly: { icon: "fa-smile-o", color: "#2ecc71", label: "友好" },
+            colleague: { icon: "fa-briefcase", color: "#3498db", label: "同事" },
+            secret: { icon: "fa-eye-slash", color: "#9b59b6", label: "保守秘密" },
+            revenge: { icon: "fa-flag", color: "#e74c3c", label: "复仇" },
+            death: { icon: "fa-cross", color: "#7f8c8d", label: "因TA死亡" },
+            classmate: { icon: "fa-graduation-cap", color: "#9b59b6", label: "警校同窗" },
+            "领域外的妹妹": { icon: "fa-female", color: "#9b59b6", label: "姨甥" } // 特殊关系
+        };
+
+        // 关系权重配置（数字越大越重要）
+        const relationshipWeights = {
+            love: 10,         // 恋人（最重要）
+            family: 9,         // 家人
+            identity: 8,       // 同一人
+            partner: 8,        // 侦探搭档
+            teammate: 7,       // 核心搭档
+            assist: 6,         // 主要协助者
+            friend: 7,         // 挚友
+            enemy: 5,          // 主要敌人
+            subordinate: 4,    // 直接下属
+            superior: 4,       // 直接上级
+            hunt: 4,           // 追杀关系
+            pretend: 3,        // 伪装关系
+            colleague: 3,      // 同事
+            depend: 2,         // 依赖关系
+            friendly: 2,       // 友好关系
+            unrelated: 1       // 非关联（最次要）
+        };
+
+        // 初始化画布
+        function initCanvas() {
+            const canvas = document.getElementById("relationshipCanvas");
+            const canvasRect = canvas.getBoundingClientRect();
+            const centerX = canvasRect.width / 2;
+            const centerY = canvasRect.height / 2;
+
+            // 初始位置分布（圆形分布）
+            const radius = Math.min(canvasRect.width, canvasRect.height) / 4;
+            const initialPositions = [];
+
+            characters.forEach((char, index) => {
+                const angle = (index / characters.length) * Math.PI * 2;
+                initialPositions.push({
+                    x: centerX + radius * Math.cos(angle),
+                    y: centerY + radius * Math.sin(angle)
+                });
+            });
+
+            // 创建人物头像
+            characters.forEach((char, index) => {
+                const avatar = document.createElement("div");
+                avatar.id = `avatar-${char.id}`;
+                avatar.className = "character-avatar";
+                avatar.dataset.id = char.id;
+
+                // 设置初始位置
+                avatar.style.left = `${initialPositions[index].x - 50}px`;
+                avatar.style.top = `${initialPositions[index].y - 50}px`;
+
+                // 添加头像图片
+                avatar.innerHTML = `
+                    <img src="${char.image}" alt="${char.name}">
+                    <div class="name-tag">${char.name}</div>
+                `;
+
+                // 添加点击事件
+                avatar.addEventListener("click", () => centerCharacter(char.id));
+
+                canvas.appendChild(avatar);
+            });
+
+            // 默认将柯南设为中心人物
+            setTimeout(() => {
+                centerCharacter("conan");
+            }, 500);
+        }
+
+        // 将指定人物移至中心并显示关联人物
+        function centerCharacter(characterId) {
+            const canvas = document.getElementById("relationshipCanvas");
+            const canvasRect = canvas.getBoundingClientRect();
+            const centerX = canvasRect.width / 2;
+            const centerY = canvasRect.height / 2;
+
+            // 清除所有连接线和标签
+            document.getElementById("connectionLines").innerHTML = "";
+            document.getElementById("relationshipLabels").innerHTML = "";
+
+            // 获取中心人物数据
+            const centerChar = characters.find(c => c.id === characterId);
+            if (!centerChar) return;
+
+            // 重置所有头像样式
+            document.querySelectorAll(".character-avatar").forEach(avatar => {
+                avatar.classList.remove("center");
+            });
+
+            // 移动中心人物到中央
+            const centerAvatar = document.getElementById(`avatar-${characterId}`);
+            centerAvatar.style.left = `${centerX - 70}px`;
+            centerAvatar.style.top = `${centerY - 70}px`;
+            centerAvatar.classList.add("center");
+
+            // 获取关联人物
+            const relatedChars = [];
+            centerChar.relationships.forEach(rel => {
+                const relatedChar = characters.find(c => c.id === rel.target);
+                if (relatedChar) {
+                    relatedChars.push({ ...relatedChar, relationship: rel });
+                }
+            });
+
+            // 围绕中心人物分布关联人物
+            const radius = Math.min(canvasRect.width, canvasRect.height) / 3;
+
+            relatedChars.forEach((char, index) => {
+                const angle = (index / relatedChars.length) * Math.PI * 2;
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
+
+                // 移动关联人物
+                const avatar = document.getElementById(`avatar-${char.id}`);
+                if (avatar) {
+                    avatar.style.left = `${x - 50}px`;
+                    avatar.style.top = `${y - 50}px`;
+
+                    // 创建连接线
+                    createConnectionLine(
+                        centerX, centerY,
+                        x, y,
+                        char.relationship.type
+                    );
+
+                    // 创建关系标签
+                    createRelationshipLabel(
+                        (centerX + x) / 2,
+                        (centerY + y) / 2,
+                        char.relationship.type
+                    );
+                }
+            });
+
+            // 将非关联人物移到边缘
+            characters.forEach(char => {
+                if (char.id !== characterId &&
+                    !relatedChars.some(related => related.id === char.id)) {
+                    const avatar = document.getElementById(`avatar-${char.id}`);
+                    if (avatar) {
+                        // 移到画布边缘
+                        const angle = Math.random() * Math.PI * 2;
+                        const farRadius = Math.min(canvasRect.width, canvasRect.height) / 2 - 60;
+                        const x = centerX + farRadius * Math.cos(angle);
+                        const y = centerY + farRadius * Math.sin(angle);
+
+                        avatar.style.left = `${x - 50}px`;
+                        avatar.style.top = `${y - 50}px`;
+                        avatar.style.opacity = "0.6";
+                    }
+                } else {
+                    // 恢复关联人物的不透明度
+                    const avatar = document.getElementById(`avatar-${char.id}`);
+                    if (avatar) avatar.style.opacity = "1";
+                }
+            });
+        }
+
+        // 创建连接线
+        function createConnectionLine(x1, y1, x2, y2, type) {
+            const lineContainer = document.getElementById("connectionLines");
+            const line = document.createElement("div");
+            line.className = "connection-line";
+
+            // 计算线的长度和角度
+            const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+
+            // 设置线的样式和位置
+            line.style.width = `${length}px`;
+            line.style.left = `${x1}px`;
+            line.style.top = `${y1}px`;
+            line.style.transform = `rotate(${angle}deg)`;
+
+            // 根据关系类型设置颜色
+            if (relationshipTypes[type]) {
+                line.style.background = relationshipTypes[type].color;
+            }
+
+            lineContainer.appendChild(line);
+        }
+
+        // 创建关系标签
+        function createRelationshipLabel(x, y, type) {
+            const labelContainer = document.getElementById("relationshipLabels");
+            const label = document.createElement("div");
+            label.className = "relationship-label";
+
+            // 设置标签位置
+            label.style.left = `${x}px`;
+            label.style.top = `${y}px`;
+            label.style.transform = "translate(-50%, -50%)";
+
+            // 根据关系类型设置内容
+            if (relationshipTypes[type]) {
+                label.innerHTML = `<i class="fa ${relationshipTypes[type].icon}" style="color: ${relationshipTypes[type].color};"></i> ${relationshipTypes[type].label}`;
+            } else {
+                label.textContent = "关联";
+            }
+
+            labelContainer.appendChild(label);
+        }
+
+        // 移动端菜单功能
+        document.getElementById('mobile-nav').addEventListener('click', function (e) {
+            e.preventDefault();
+            const nav = document.querySelector('.simple-toggle');
+            nav.classList.toggle('open');
+        });
+
+        // 页面加载完成后初始化
+        window.addEventListener('load', initCanvas);
+
+        // 窗口大小改变时重新布局
+        window.addEventListener('resize', () => {
+            const centerAvatar = document.querySelector('.character-avatar.center');
+            if (centerAvatar) {
+                const characterId = centerAvatar.dataset.id;
+                centerCharacter(characterId);
+            }
+        });
+    </script>
+
+    <style>
+        @media (max-width: 768px) {
+            .relationship-canvas {
+                min-height: 500px;
+            }
+
+            .character-avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .character-avatar.center {
+                width: 120px;
+                height: 120px;
+            }
+
+            .relationship-legend {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</body>
+
+</html>

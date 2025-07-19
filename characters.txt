@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物简介 - 名侦探柯南社区</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Source+Sans+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header-top">
+                <div class="top-nav">
+                    <ul class="simple-toggle" id="menu">
+                        <li>
+                            <a href="index.html">
+                                <span class="fa fa-home">社区主页</span>
+                            </a>
+                        </li>
+                        <li class="logo">
+                            <a href="characters.html">
+                                <h1><i aria-hidden="true"></i>人物简介</h1>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="relationships.html">
+                                <span class="fa fa-sitemap">人物关系</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reviews.html">
+                                <span class="fa fa-commentary">热门解说</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="episodes.html">
+                                <span class="fa fa-play-circle">剧集观看</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="user-profile.html">
+                                <span class="fa fa-user">个人中心</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#menu-toggle').click(function (e) {
+                                $('#menu').toggleClass('open');
+                                e.preventDefault();
+                            });
+                            $('.simple-toggle li a').click(function (e) {
+                                $('.simple-toggle li').removeClass('active');
+                                $(this).parent('li').addClass('active');
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="images/banner.jpg" alt="名侦探柯南社区" style="width:100%; border-radius:5px;">
+                <div class="banner-text">
+                    <h2>探索柯南世界的人物故事</h2>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <h1 style="color:#758084; font-size:28px; padding:15px 0; border-bottom:1px solid #f4f5f5;">
+                <i class="fa fa-user-circle" aria-hidden="true"></i> 人物简介
+            </h1>
+
+            <section id="main-characters" class="character-section group">
+                <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold;">
+                    <i class="fa fa-star" aria-hidden="true"></i> 主要角色
+                </h2>
+
+                <article id="conan" class="character-card top_grid" style="margin-bottom:20px;">
+                    <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                        <img src="images/conan.jpg" alt="江户川柯南"
+                            style="width:100%; border-radius:5px; object-fit:cover;">
+                    </div>
+                    <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                        <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">江户川柯南</h3>
+                        <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-id-card"
+                                    aria-hidden="true"></i> 原名:</strong> 工藤新一</p>
+                        <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                    class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 7岁(实际17岁)</p>
+                        <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-briefcase"
+                                    aria-hidden="true"></i> 职业:</strong> 小学生/侦探</p>
+                        <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                    class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                            本作主人公，原名工藤新一，因被黑衣组织灌下毒药APTX4869而变成小孩模样...</p>
+                    </div>
+                </article>
+
+                <article id="ran" class="character-card top_grid">
+                    <div class="images_1_of_3" style="width:25%; float:left; padding:15px;">
+                        <img src="images/ran.jpg" alt="毛利兰" style="width:100%; border-radius:5px; object-fit:cover;">
+                    </div>
+                    <div class="character-info span_2_of_3" style="float:left; padding:15px;">
+                        <h3 style="color:#758084; font-size:20px; padding-bottom:10px; font-weight:bold;">毛利兰</h3>
+                        <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                    class="fa fa-birthday-cake" aria-hidden="true"></i> 年龄:</strong> 17岁</p>
+                        <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i class="fa fa-briefcase"
+                                    aria-hidden="true"></i> 职业:</strong> 高中生</p>
+                        <p style="color:#929596; font-size:16px; line-height:1.6em;"><strong><i
+                                    class="fa fa-info-circle" aria-hidden="true"></i> 简介:</strong>
+                            工藤新一的青梅竹马，空手道高手。对新一有着深厚的感情...</p>
+                    </div>
+                </article>
+            </section>
+
+            <section id="supporting-characters" class="character-section group">
+                <h2 style="color:#758084; font-size:22px; padding:10px 0; font-weight:bold; margin-top:30px;">
+                    <i class="fa fa-star" aria-hidden="true"></i>次要角色
+                </h2>
+                <!-- 可继续添加次要角色，保持与主要角色一致的样式结构 -->
+            </section>
+
+        </div>
+
+        <footer class="footer"
+            style="background:#2c3e50; color:white; text-align:center; padding:20px; margin-top:30px; border-radius:5px 5px 0 0;">
+            <div class="copy-right">
+                <p>&copy; 2025 名侦探柯南社区 | 本网站为粉丝制作，非官方
+                    <a target="_blank" href="https://www.conan-portal.com/" title="官方网站">
+                        <i class="fa fa-external-link" aria-hidden="true"></i> 官方网站
+                    </a>
+                </p>
+                <p style="margin-top:8px; font-size:0.9em; opacity:0.9;"><i class="fa fa-database"
+                        aria-hidden="true"></i> 数据来源: Bilibili • 最后更新: 2025年7月</p>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        document.getElementById('mobile-nav').addEventListener('click', function (e) {
+            e.preventDefault();
+            const nav = document.querySelector('.simple-toggle');
+            nav.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>
